@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    body {
+  padding: 0;
+      margin: 0;
+      background: black;
+      display: block;
+      
+      height: 80vh;
+    }
+    canvas {
+  display: block;
+  margin: 30px auto;
+  width: 90vw;
+  max-width: 400px;
+  height: auto;
+  background: #000;
+  transition: opacity 0.5s ease;
+}
+    .bithhead
+    {
+      color: whitesmoke;
+      margin-left: 25%;
+    }
+    .wife{
+      color: #00f0ff;
+      margin-left: 30%;
+      
+    }
+    .card {
+    	
+    	
+    	opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s ease, visibility 1s ease;
+
+	 position: relative;
+	 left: 15%;
+	 width: 400px;
+	 height: 525px;
+	 border: 10px solid #9612eb;
+	/* margin: 60px auto 0 auto;*/
+	 box-shadow: inset 10px 0px 15px 0px rgba(0, 0, 0, 0.1);
+     background-image: linear-gradient(to bottom, rgba(41, 42, 50, 1), rgba(255, 255, 255, 0.1)), url("https://images.unsplash.com/photo-1527481138388-31827a7c94d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60");
+
+	background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover;
+	background-color: #e6f0e6;
+}
+
+ .card .text-container {
+	 width: 80%;
+	 height: 80%;
+	 margin: auto;
+}
+ .strikethrough {
+	 text-decoration: line-through;
+}
+ .card .text-container #head {
+	 font-family: 'Nobile', sans-serif;
+	 font-size: 1.5em;
+	 margin: 60px auto 60px auto;
+}
+ .card p {
+	 font-size: 1em;
+	 line-height: 1.4;
+	 font-family: 'Nobile';
+	 color: rgba(210, 211, 225, 1);
+	 font-style: italic;
+	 text-align: center;
+	 margin: 30px auto 0px auto;
+}
+ .card .front {
+	 position: absolute;
+	 width: 100%;
+	 height: 100%;
+	 margin: -10px 0px 0px -10px;
+	 border: 10px solid #9612eb;
+	 backface-visibility: hidden;
+	 background-color: #9612eb;
+	/* background-image: url($cover-image);
+	 */
+	 background-size: contain;
+	 transform-style: preserve-3d;
+	 transform-origin: 0% 50%;
+	 transform: perspective(800px) rotateY(0deg);
+	 transition: all 0.8s ease-in-out;
+}
+ .card:hover .front {
+	 transform: perspective(800px) rotateY(-170deg);
+	 background-color: #41718d;
+}
+ .card:hover .back {
+	 transform: perspective(800px) rotateY(-170deg);
+	 box-shadow: 7px 0px 5px 0px rgba(0, 0, 0, 0.3), inset 2px 0px 15px 0px rgba(0, 0, 0, 0.1);
+	 background-color: #d2dcd2;
+}
+ .card .back {
+	 position: absolute;
+	 width: 100%;
+	 height: 100%;
+	 border: 10px solid #9612eb;
+	 margin: -10px 0px 0px -10px;
+	 backface-visibility: visible;
+	 filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, .5));
+	 transform-style: preserve-3d;
+	 transform-origin: 0% 50%;
+	 transform: perspective(800px) rotateY(0deg);
+	 transition: all 0.8s ease-in-out;
+	 background-color: #e6f0e6;
+	 box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
+}
+
+.imgset
+{
+  position: relative;
+  z-index: 1;
+  margin-bottom: -215px;
+}
+.imgset img
+{
+    box-shadow: 0px 6px 11px 7px rgba(0, 0, 0, 0.22);
+    border-radius: 5px;
+}
+ .paper {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background: red;
+      border-radius: 3px;
+      animation: fall linear infinite;
+      top: -10%;
+    }
+
+   @keyframes fall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0.5;
+      }
+    }
+    .fors{
+    	margin-left:25%;
+    	color: white;
+    	visibility: hidden;
+    }
+  </style>
+  <meta charset="UTF-8" />
+  <title>My Heart</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<audio id="myAudio" src="/HAPPY BIRTHDAY INSTRUMENTAL - Benote.mp3" style="display: none;"></audio
+
+  <div class="paper"></div>
+  <div></div><h2 class="bithhead">HAPPY BIRTHDAY</h2>
+  <h1 class="wife">
+MY WIFE ♥ 
+  </h1>
+  <h3 class="fors" id="fors">
+    <!--Tab to edit-->
+    click the card 😊
+  </h3>
+  </div>
+
+ <div>
+  <canvas id="heartCanvas" width="400" height="400"></canvas>
+  </div>
+  <div class="card" id="card">
+
+  <div class="back"></div>
+  <div class="front">
+    <div class="imgset">
+         <img width="100%" src="https://1.bp.blogspot.com/-Mgj9-rbs65E/XfMoPSD5gtI/AAAAAAAAURk/NBokE2gSS2cTSJ2em5lZ5hJDuTtRN7UVwCLcBGAsYHQ/s1600/2713997.png">
+       </div>
+  </div>
+  <div class="text-container">
+    <p id="head">Happy Birthday My Wife عائشہ</p>
+    <h5></h5>
+    <p>My heart may allah give you all happiness and joyful life all your wishes come true,Allah protect you from evil  eyes, Make your love more strong for me & make my love more strong for you  اللهم عجّل زواجنا من هالة</p>
+    <p>Your my first and last wish</p>
+  </div>
+</div>
+
+  <script>
+    document.addEventListener('click', function() {
+  document.getElementById('myAudio').play();
+});
+
+const colors = ['red', 'blue', 'green', 'white', 'purple', 'yellow', 'pink', 'cyan'];
+
+for (let i = 0; i < 30; i++) {
+  const paper = document.createElement("div");
+  paper.classList.add("paper");
+  
+  // Random position and animation delay
+  paper.style.left = Math.random() * 100 + "vw";
+  paper.style.animationDuration = (3 + Math.random() * 3) + "s";
+  paper.style.animationDelay = Math.random() * 5 + "s";
+  paper.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+  
+  document.body.appendChild(paper);
+}
+const canvas = document.getElementById("heartCanvas");
+const ctx = canvas.getContext("2d");
+const card = document.getElementById("card");
+let t = 0;
+
+function drawHalfHeart(progress, color, flip = false) {
+  ctx.save();
+  ctx.translate(canvas.width / 2, canvas.height / 2);
+  if (flip) ctx.scale(-1, 1); // Flip for right half
+  
+  ctx.beginPath();
+  ctx.moveTo(0, 0);
+  
+  for (let angle = 0; angle <= progress; angle += 0.01) {
+    let x = 16 * Math.pow(Math.sin(angle), 3);
+    let y =
+      13 * Math.cos(angle) -
+      5 * Math.cos(2 * angle) -
+      2 * Math.cos(3 * angle) -
+      Math.cos(4 * angle);
+    ctx.lineTo(x * 6, -y * 6);
+  }
+  
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 4;
+  ctx.shadowColor = color;
+  ctx.shadowBlur = 15;
+  ctx.stroke();
+  ctx.restore();
+}
+
+function drawHalfA() {
+  const text = "A";
+  ctx.font = "bold 80px Arial";
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  
+  // Left half in RED
+  ctx.save();
+  ctx.beginPath();
+  ctx.rect(0, 0, canvas.width / 2, canvas.height);
+  ctx.clip();
+  ctx.fillStyle = "#ff007c";
+  ctx.shadowColor = "#ff007c";
+  ctx.shadowBlur = 20;
+  ctx.fillText(text, canvas.width / 2, canvas.height / 2);
+  ctx.restore();
+  
+  // Right half in BLUE
+  ctx.save();
+  ctx.beginPath();
+  ctx.rect(canvas.width / 2, 0, canvas.width / 2, canvas.height);
+  ctx.clip();
+  ctx.fillStyle = "#00f0ff";
+  ctx.shadowColor = "#00f0ff";
+  ctx.shadowBlur = 20;
+  ctx.fillText(text, canvas.width / 2, canvas.height / 2);
+  ctx.restore();
+}
+
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  
+  drawHalfHeart(t, "#00f0ff", false); // Left (blue)
+  drawHalfHeart(t, "#ff007c", true); // Right (red)
+  drawHalfA(); // Glowing half-A in center
+  
+  t += 0.03;
+  if (t <= Math.PI) {
+    requestAnimationFrame(animate);
+  }
+}
+
+animate();
+setTimeout(() => {
+  
+  canvas.style.opacity = '0';
+  console.log('hello');
+}, 5000);
+setTimeout(() => {
+  card.style.opacity = 1;
+  card.style.visibility = 'visible';
+}, 5000);
+setTimeout(() => {
+  document.getElementById('fors').style.visibility = 'visible';
+}, 5500);
+setTimeout(() => {
+  document.getElementById('fors').style.visibility = 'hidden';
+}, 8000);
+  </script>
+</body>
+</html>
